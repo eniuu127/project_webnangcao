@@ -12,13 +12,21 @@
                 <div class="card-body text-center">
                     <div class="product-name">{{ $product->product_name }}</div>
                     <div class="product-price text-danger">{{ number_format($product->product_price) }}đ</div>
-                    <form action="{{ url('/add-to-cart') }}" method="POST">
-                        @csrf
-                        <input type="hidden" name="product_id" value="{{ $product->id }}">
-                        <button type="submit" class="btn btn-outline-secondary btn-sm mt-2">
-                            <i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng
-                        </button>
-                    </form>
+                   @auth
+                        <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-default add-to-cart">
+                                <i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng
+                            </button>
+                        </form>
+
+                    @endauth
+
+                    @guest
+                        <a href="{{ route('login') }}" class="btn btn-outline-secondary btn-sm mt-2">
+                            <i class="fa fa-shopping-cart"></i> Đăng nhập để mua
+                        </a>
+                    @endguest
                 </div>
             </div>
         </div>

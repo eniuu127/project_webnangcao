@@ -23,11 +23,14 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                            @if(Auth::check())
-                                <div>{{ Auth::user()->name }}</div>
-                            @else
-                                <div>Khách</div> {{-- hoặc: <a href="{{ route('login') }}">Đăng nhập</a> --}}
-                            @endif
+                            <div>
+                                @if(Auth::check())
+                                    {{ Auth::check() ? Auth::user()->name : 'Tài khoản' }}
+
+                                @else
+                                    Khách
+                                @endif
+                            </div>
 
 
                             <div class="ms-1">
@@ -39,25 +42,18 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        @if (Route::has('profile.edit'))
-                            <x-dropdown-link :href="route('profile.edit')">
-                                {{ __('Profile') }}
-                            </x-dropdown-link>
-                        @endif
-
+                        <x-dropdown-link :href="route('profile.edit')">
+                            {{ __('Profile') }}
+                        </x-dropdown-link>
 
                         <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
+                      {{--  <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
+                            <button type="submit" class="dropdown-item" onclick="event.preventDefault(); this.closest('form').submit(); window.location.href='/'">
+                                Đăng xuất
+                            </button>  --}}
                         </form>
-                    </x-slot>
-                </x-dropdown>
+
             </div>
 
             <!-- Hamburger -->
@@ -83,24 +79,15 @@
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
-                <div class="px-4">
-                    @if (Auth::check())
-                        <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                        <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-                    @else
-                        <div class="font-medium text-base text-gray-800">Khách</div>
-                        <div class="font-medium text-sm text-gray-500">Chưa đăng nhập</div>
-                    @endif
-</div>
-
+                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
+                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
             </div>
 
             <div class="mt-3 space-y-1">
-                @if (Route::has('profile.edit'))
-                    <x-responsive-nav-link :href="route('profile.edit')">
-                        {{ __('Profile') }}
-                    </x-responsive-nav-link>
-                @endif
+                <x-responsive-nav-link :href="route('profile.edit')">
+                    {{ __('Profile') }}
+                </x-responsive-nav-link>
+
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
@@ -111,6 +98,7 @@
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>
+            @endif    
             </div>
         </div>
     </div>

@@ -50,11 +50,21 @@
 			<div class="shop-menu">
 				<ul class="nav navbar-nav">
 					<?php $customer_id = Session::get('customer_id'); ?>
-					@if($customer_id != NULL)
-						<li><a href="{{ URL::to('logout-checkout') }}"><i class="fa fa-lock"></i> Đăng xuất</a></li>
+					@guest
+						<li><a href="{{ route('login') }}"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+						<li><a href="{{ route('register') }}"><i class="fa fa-user-plus"></i> Đăng ký</a></li>
+
 					@else
-						<li><a href="{{ URL::to('login-checkout') }}"><i class="fa fa-lock"></i> Đăng nhập</a></li>
-					@endif
+						<li><a href="{{ route('logout') }}"
+							onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+							<i class="fa fa-lock"></i> Đăng xuất
+						</a></li>
+
+						<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+							@csrf
+						</form>
+					@endguest
+
 				</ul>
 			</div>
 		</div>

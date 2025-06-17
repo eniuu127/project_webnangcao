@@ -42,6 +42,7 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $product = Product::findOrFail($id);
+        $product->product_name = $request->input('product_name');
         $product->product_price = $request->input('product_price');
 
         if ($request->hasFile('product_image')) {

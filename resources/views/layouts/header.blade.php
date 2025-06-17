@@ -57,16 +57,28 @@
 
         <!-- Đăng nhập / Đăng xuất -->
         <div style="position: absolute; top: 75px; right: 200px; z-index: 999;">
-            <div class="shop-menu">
-                <ul class="nav navbar-nav">
-                    <?php $customer_id = Session::get('customer_id'); ?>
-                    @if($customer_id != NULL)
-                        <li><a href="{{ URL::to('logout-checkout') }}"><i class="fa fa-lock"></i> Đăng xuất</a></li>
+             <div class="shop-menu">
+                <ul class="nav navbar-nav d-flex align-items-center" style="gap: 10px;">
+                    @guest
+                        <li><a href="{{ route('login') }}"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+                        <li><a href="{{ route('register') }}"><i class="fa fa-user-plus"></i> Đăng ký</a></li>
                     @else
-                        <li><a href="{{ URL::to('login-checkout') }}"><i class="fa fa-lock"></i> Đăng nhập</a></li>
-                    @endif
+                        <li class="d-flex align-items-center">
+                            <i class="fa fa-user text-primary me-1"></i>
+                            <span style="font-weight: 500;">{{ Auth::user()->name }}</span>
+                        </li>
+                        <li>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="btn btn-link text-decoration-none text-primary" style="padding: 0; margin-left: 10px; font-size: 20px; color : #333">
+                                    Đăng xuất
+                                </button>
+                            </form>
+                        </li>
+                    @endguest
                 </ul>
             </div>
+            
         </div>
 
         <!-- Middle -->
@@ -96,9 +108,9 @@
                     <div class="col-sm-7">
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="{{ URL::to('/trang-chu') }}" class="active" style="color: #696763;">TRANG CHỦ</a></li>
-                                <li><a href="{{ URL::to('san-pham') }}" class="active" style="color: #ef844e;">SẢN PHẨM</a></li>
-                                <li><a href="{{ URL::to('gio-hang') }}">GIỎ HÀNG</a></li>
+                                <li><a href="{{ URL::to('/trang-chu') }}" class="active" style="color: #696763;font-weight: bold;font-size : 18px;">TRANG CHỦ</a></li>
+                                <li><a href="{{ URL::to('san-pham') }}" class="active" style="color: #fbab83;font-size : 18px;">SẢN PHẨM</a></li>
+                                <li><a href="{{ route('cart.show') }}" class="active" style="color: #0b4493; font-weight: bold; font-size : 22px;">GIỎ HÀNG</a></li>
                             </ul>
                         </div>
                     </div>

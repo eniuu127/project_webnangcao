@@ -1,0 +1,10 @@
+@extends('layouts.app')
+@section('content')
+<div class="container mt-4">
+    <h3>✅ Xác nhận đơn hàng</h3>
+    <p>Tổng tiền cần thanh toán: <strong>{{ number_format($total) }}đ</strong></p>
+
+    <p>👉 Chức năng thanh toán đang được phát triển. Vui lòng quay lại sau!</p>
+    <a href="{{ route('cart.view') }}" class="btn btn-secondary">← Quay lại giỏ hàng</a>
+</div>
+@endsection
