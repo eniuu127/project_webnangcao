@@ -65,11 +65,12 @@
                     <td>{{ $item->product_name }}</td>
                     <td class="text-danger">{{ number_format($item->product_price) }}đ</td>
                     <td>
-                        @if($item->product_image)
-                            <img src="{{ url('uploads/product/' . $item->product_image) }}" width="70" class="img-thumbnail">
-                        @else
-                            <span class="text-muted">Không có ảnh</span>
-                        @endif
+                        @if ($item->product_image && file_exists(public_path('uploads/product/' . $item->product_image)))
+    <img src="{{ asset('uploads/product/' . $item->product_image) }}" width="60">
+@else
+    <span class="text-muted">Không có ảnh</span>
+@endif
+
                     </td>
                 </tr>
                 @endforeach

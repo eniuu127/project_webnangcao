@@ -16,44 +16,46 @@ class ProductController extends Controller
         return view('admin.add_product');
     }
 
-    public function store(Request $request) {
-        $filename = null;
+    public function store(Request $request)
+    {
+        $product = new Product();
+        $product->product_name = $request->input('product_name');
+        $product->product_price = $request->input('product_price');
+
         if ($request->hasFile('product_image')) {
-            $file = $request->file('product_image');
-            $filename = time().'_'.$file->getClientOriginalName();
-            $file->move(public_path('uploads/product'), $filename);
+            $image = $request->file('product_image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $image->move(public_path('uploads/product'), $imageName);
+            $product->product_image = $imageName;
         }
 
-        Product::create([
-            'product_name' => $request->product_name,
-            'product_price' => $request->product_price,
-            'product_image' => $filename,
-        ]);
+        $product->save();
 
-        return redirect('/admin/products');
-    }
+        return redirect('/admin/products')->with('success', 'Thêm sản phẩm thành công');
+    }   
 
     public function edit($id) {
         $product = Product::findOrFail($id);
         return view('admin.edit_product', compact('product'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         $product = Product::findOrFail($id);
+        $product->product_price = $request->input('product_price');
 
         if ($request->hasFile('product_image')) {
-            $file = $request->file('product_image');
-            $filename = time().'_'.$file->getClientOriginalName();
-            $file->move(public_path('uploads/product'), $filename);
-            $product->product_image = $filename;
+            $image = $request->file('product_image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $image->move(public_path('uploads/product'), $imageName);
+            $product->product_image = $imageName;
         }
 
-        $product->product_name = $request->product_name;
-        $product->product_price = $request->product_price;
         $product->save();
 
-        return redirect('/admin/products');
+        return redirect('/admin/products')->with('success', 'Cập nhật thành công');
     }
+
 
     public function destroy($id) {
         Product::destroy($id);

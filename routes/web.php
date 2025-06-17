@@ -14,7 +14,8 @@ Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.logi
 
 // product
 
-Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+
 Route::get('/admin/products', [ProductController::class, 'index']);
 Route::get('/admin/products/create', [ProductController::class, 'create']);
 Route::post('/admin/products', [ProductController::class, 'store']);
