@@ -1,42 +1,50 @@
-🕹️ Website Bán Tài Khoản Game – GameZone Store
-👨‍🎓 Thông tin sinh viên
-Họ và tên: Nguyễn Hải Hà
-Mã sinh viên: 23010469
-Lớp: K17-CNTT5
-Môn học: Thiết kế Web nâng cao (TH3)
-📄 Giới thiệu dự án
-GameZone Store là một website thương mại điện tử đơn giản chuyên bán các tài khoản game như PUBG, Liên Quân, Free Fire,... Dự án được phát triển bằng Laravel Framework với thiết kế hiện đại, dễ sử dụng và tích hợp các công nghệ phổ biến:
+# 🧥 Website Bán Quần Áo - Clothing Shop
 
-Laravel Breeze – Đăng ký / đăng nhập người dùng và phân quyền cơ bản
-Blade Template Engine – Tạo bố cục và view tái sử dụng
-Tailwind CSS – Thiết kế giao diện responsive, hiện đại
-Eloquent ORM – Quản lý dữ liệu theo mô hình đối tượng
-MySQL (Cloud – Aiven) – Cơ sở dữ liệu lưu trực tuyến
-Bảo mật hệ thống:
-Token CSRF – bảo vệ form
-Session & Cookie – quản lý trạng thái đăng nhập
-Validation – kiểm tra dữ liệu đầu vào
-Phòng chống SQL Injection & XSS
-Người dùng có thể duyệt danh sách tài khoản game, thêm vào giỏ hàng và tiến hành thanh toán sau khi đăng nhập. Quản trị viên có thể đăng nhập vào hệ thống để thực hiện các thao tác thêm / sửa / xóa sản phẩm và đơn hàng.
+## 👩‍🎓 Thông tin sinh viên
+- **Họ và tên:** Vũ Thị Hải Yến  
+- **Mã sinh viên:** 23010421  
+- **Lớp:** K17-CNTT4  
+- **Môn học:** Thiết kế Web nâng cao (TH3)
 
-🧩 Chức năng chính
-👤 Người dùng
-Đăng ký và đăng nhập
-Duyệt danh sách tài khoản game
-Thanh toán đơn hàng
-Xem lịch sử mua hàng
-🛠 Quản trị viên (Admin)
-Đăng nhập riêng để quản trị
-CRUD sản phẩm game (tài khoản)
-Quản lý đơn hàng và người dùng
-🛠️ Công nghệ sử dụng
-Công nghệ	Mô tả
-Laravel (PHP)	Backend framework chính
-Laravel Breeze	Hệ thống xác thực người dùng và session
-Blade + Tailwind CSS	Giao diện người dùng, responsive và hiện đại
-MySQL (Aiven)	Cơ sở dữ liệu lưu trữ trên nền tảng cloud
-Eloquent ORM	Truy vấn và xử lý dữ liệu theo mô hình OOP
-Middleware	Bảo vệ CSRF, phân quyền truy cập
+---
+## 📄 Giới thiệu dự án
+
+**Clothing Shop** là website thương mại điện tử đơn giản bán các mặt hàng thời trang như váy, bikini, đồ hè, đồ mặc đi biển,... Dự án được phát triển bằng Laravel Framework với thiết kế hiện đại, dễ sử dụng và tích hợp các công nghệ phổ biến:
+
+- **Laravel Breeze** – Đăng ký / đăng nhập người dùng và phân quyền cơ bản
+- **Blade Template Engine** – Tạo bố cục và view tái sử dụng
+- **Tailwind CSS** – Thiết kế giao diện responsive, hiện đại
+- **Eloquent ORM** – Quản lý dữ liệu theo mô hình đối tượng
+- **MySQL (Cloud – Aiven)** – Cơ sở dữ liệu lưu trực tuyến
+- **Bảo mật hệ thống**:
+    - Token CSRF – bảo vệ form
+    - Session & Cookie – quản lý trạng thái đăng nhập
+    - Validation – kiểm tra dữ liệu đầu vào
+    - Phòng chống **SQL Injection** & **XSS**
+
+## 🧩 Chức năng chính
+### 👤 Người dùng
+- Đăng ký / đăng nhập
+- Xem sản phẩm (quần áo)
+- Thêm sản phẩm vào giỏ hàng
+- Thanh toán đơn hàng
+- Xem lịch sử mua hàng
+### 🛠 Quản trị viên (Admin)
+- Đăng nhập riêng biệt
+- CRUD sản phẩm (quần áo)
+- Quản lý đơn hàng
+- Quản lý người dùng
+## ⚙️ Công nghệ sử dụng
+
+| Công nghệ         | Mô tả                                              |
+|------------------|----------------------------------------------------|
+| Laravel          | Framework PHP chính                                |
+| Laravel Breeze   | Xác thực người dùng, session                        |
+| Blade + Bootstrap| Giao diện người dùng hiện đại                       |
+| Eloquent ORM     | Truy vấn và thao tác dữ liệu theo mô hình OOP      |
+| MySQL (Aiven)    | Cơ sở dữ liệu trực tuyến (cloud database)          |
+| Middleware       | Phân quyền, kiểm tra truy cập, CSRF token          |
+---
 Sơ đồ khối
 Sơ đồ chức năng
 Class Diagram of Objects
