@@ -10,7 +10,7 @@ class AdminUserSeeder extends Seeder
 {
     public function run()
     {
-        $this->call(AdminUserSeeder::class);
+        //$this->call(AdminUserSeeder::class);
         User::create([
             'name' => 'Admin',
             'email' => 'admin@shop.com',
