@@ -42,7 +42,7 @@
         <h2>Dashboard</h2>
         <a href="{{ url('/admin/dashboard') }}"> Trang chính</a>
         <a href="{{ url('/admin/products') }}">Quản lý sản phẩm</a>
-        <a href="{{ url('/admin/orders') }}" ></a>Quản lý đơn hàng</a>
+        <a href="{{ url('/admin/orders') }}">Quản lý đơn hàng</a>
         <a href="{{ url('/logout') }}"> Đăng xuất</a>
     </div>
 
@@ -79,6 +79,7 @@
 
 
         <hr>
+        
         <h3>Quản lý đơn hàng</h3>
         <table class="table table-bordered">
             <thead>

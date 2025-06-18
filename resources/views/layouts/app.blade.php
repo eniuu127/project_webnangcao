@@ -109,9 +109,10 @@
                     <div class="col-sm-7">
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse ">
-                                <li><a href="{{ URL::to('/trang-chu') }}" class="active" style="color: #696763; font-size: 18px;">TRANG CHỦ</a></li>
-                                <li><a href="{{ URL::to('san-pham') }}" class="active" style="color: #ef844e; font-size: 18px;">SẢN PHẨM</a></li>
-                                <li><a href="{{ URL::to('gio-hang') }}" style="font-size: 18px;">GIỎ HÀNG</a></li>
+                                <li><a href="{{ URL::to('/trang-chu') }}" class="active" style="color: #696763; font-size: 18px;font-weight: bold;">TRANG CHỦ</a></li>
+                                <li><a href="{{ URL::to('san-pham') }}" class="active" style="color: #f7ca26; font-size: 18px;font-weight: bold;">SẢN PHẨM</a></li>
+                                <li><a href="{{ URL::to('gio-hang') }}" style="font-size: 18px;font-weight: bold;">GIỎ HÀNG</a></li>
+                                <li><a href="{{ url('/lich-su-don-hang') }}" class="active" style="color:chocolate; font-weight: bold; font-size : 20px;">LỊCH SỬ ĐƠN HÀNG</a></li>
                             </ul>
                         </div>
                     </div>

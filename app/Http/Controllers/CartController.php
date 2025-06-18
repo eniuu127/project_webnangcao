@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use App\Models\Order;
+use App\Models\OrderItem;
 
 class CartController extends Controller
 {
@@ -86,6 +89,40 @@ class CartController extends Controller
 
         return response()->json(['success' => false], 403);
     }
+    public function processCheckout(Request $request)
+    {
+        $request->validate([
+            'address' => 'required|string|max:255',
+            'payment_method' => 'required|string',
+        ]);
 
+        $cartItems = Cart::with('product')->where('user_id', Auth::id())->get();
+        $total = $cartItems->sum(fn($item) => $item->product->product_price * $item->quantity);
+
+        $order = Order::create([
+            'user_id' => Auth::id(),
+            'address' => $request->address,
+            'payment_method' => $request->payment_method,
+            'total' => $total,
+        ]);
+
+        foreach ($cartItems as $item) {
+            OrderItem::create([
+                'order_id' => $order->id,
+                'product_id' => $item->product_id,
+                'quantity' => $item->quantity,
+                'price' => $item->product->product_price,
+            ]);
+        }
+
+        Cart::where('user_id', Auth::id())->delete();
+
+         return redirect()->route('cart.view')->with('success', 'Đơn hàng đã được đặt thành công!');
+
+    }
+    public function placeOrder(Request $request)
+    {
+        return redirect('/')->with('success', 'Đặt hàng thành công!');
+    }
 
 }
