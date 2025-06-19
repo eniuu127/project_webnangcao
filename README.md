@@ -682,9 +682,8 @@ $request->validate([
 ![image](https://github.com/user-attachments/assets/82e353d4-cacf-495c-958f-463c67f74fc1)
 
 
-
-Link Demo : [Youtube link](https://youtu.be/4DpNjZAzmkI?si=ek-PCW7GFHgGrnwC)
-Link Github: https://github.com/eniuu127/project_webnangcao.git
+- **Link Demo :** : [Youtube link](https://youtu.be/4DpNjZAzmkI?si=ek-PCW7GFHgGrnwC)
+- **Link Github :**: https://github.com/eniuu127/project_webnangcao.git
 
 License & Copy Rights
 
