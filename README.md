@@ -683,8 +683,8 @@ $request->validate([
 
 
 
-Link Demo : Youtube link
-Public Web (deployment) link:
+Link Demo : [Youtube link](https://youtu.be/4DpNjZAzmkI?si=ek-PCW7GFHgGrnwC)
+Link Github: https://github.com/eniuu127/project_webnangcao.git
 
 License & Copy Rights
 
