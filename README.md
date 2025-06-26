@@ -684,6 +684,7 @@ $request->validate([
 
 - **Link Demo :**  [Youtube link](https://youtu.be/4DpNjZAzmkI?si=ek-PCW7GFHgGrnwC)
 - **Link Github :** https://github.com/eniuu127/project_webnangcao.git
+- **Link Github pages:**[ https://github.com/eniuu127/project_webnangcao.git](https://eniuu127.github.io/project_webnangcao/)
 
 License & Copy Rights
 
