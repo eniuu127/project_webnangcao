@@ -19,7 +19,7 @@ Route::get('/dashboard', function () {
     abort(403, 'Không có quyền truy cập.');
 })->middleware(['auth', 'verified', 'admin']);
 Route::get('/dashboard', function () {
-    return redirect('/san-pham'); // hoặc /san-pham nếu bạn muốn
+    return redirect('/san-pham'); 
 })->middleware(['auth'])->name('dashboard');
 
 
